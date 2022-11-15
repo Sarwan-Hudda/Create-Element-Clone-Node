@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clone Node</title>
+</head>
+<body>
+    <div id="wrapper">
+        <form action="">
+            <div class="dynamicDiv">
+                <input type="text" placeholder="Name"><br>
+                <input type="email" placeholder="Email"><br>
+                <input type="text" placeholder="Phone"><br>
+                <label for="">Gender</label>
+                <input type="radio" value="male">Male
+                <input type="radio" value="female">Female
+                <input type="radio" value="other">Other <br>
+            </div>
+            <input type="submit" value="Register">
+            <a href="">Duplicate</a>
+        </form>
+    </div>
+
+    <script>
+        const duplicate = document.querySelector("a")
+        duplicate.onclick = function(e){
+            e.preventDefault()
+            let div = document.querySelector(".dynamicDiv:last-of-type")
+            let maal = document.querySelector(".dynamicDiv").cloneNode(true)
+            
+            div.insertAdjacentElement("afterend", maal)
+        }
+    </script>
+</body>
+</html>

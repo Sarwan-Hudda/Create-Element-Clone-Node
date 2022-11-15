@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plus ka nishaan h</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div id="wrapper">
+      <form action="">
+        <input type="text" placeholder="Name" /><br />
+        <input type="text" placeholder="Role" /> <a href="">+</a><br />
+        <input type="submit" value="Register" />
+      </form>
+    </div>
+
+    <script>
+      const plus = document.querySelector("a");
+      plus.onclick = function (e) {
+        e.preventDefault();
+        let div = document.createElement("div");
+        let span = document.createElement("span");
+        let input = document.createElement("input");
+        div.appendChild(input);
+        div.appendChild(span);
+        input.setAttribute("type", "text");
+        input.setAttribute("placeholder", "Role");
+
+        span.innerHTML = "&times;";
+        // span.classList.add('fa-solid fa-xmark')
+        document
+          .querySelector("input:nth-of-type(2)")
+          .insertAdjacentElement("afterend", div);
+
+        // document.querySelector("form").appendChild(input)
+
+        let crosses = document.querySelectorAll("span");
+        for (let i = 0; i < crosses.length; i++) {
+          crosses[i].onclick = function () {
+            crosses[i].parentElement.remove()
+          };
+        }
+      };
+    </script>
+  </body>
+</html>
